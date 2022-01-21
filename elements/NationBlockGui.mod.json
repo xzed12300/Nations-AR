@@ -9,7 +9,21 @@
     "inventoryOffsetY": 0,
     "renderBgLayer": true,
     "doesPauseGame": false,
-    "components": [],
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "<ENBT:text:nname>",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "<ENBT:text:nname>",
+          "x": 161,
+          "y": 41
+        }
+      }
+    ],
     "gridSettings": {
       "sx": 18,
       "sy": 18,

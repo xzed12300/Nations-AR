@@ -72,6 +72,7 @@ public class NationBlockGuiGuiWindow extends ContainerScreen<NationBlockGuiGui.G
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
+		this.font.drawString(ms, "" + (entity.getPersistentData().getString("nname")) + "", 35, 4, -16777216);
 	}
 
 	@Override

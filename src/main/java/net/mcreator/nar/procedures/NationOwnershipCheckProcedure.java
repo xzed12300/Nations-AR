@@ -16,6 +16,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
 
 import net.mcreator.nar.gui.NationBlockGuiGui;
+import net.mcreator.nar.NarModVariables;
 import net.mcreator.nar.NarMod;
 
 import java.util.Map;
@@ -63,9 +64,6 @@ public class NationOwnershipCheckProcedure {
 				return "";
 			}
 		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "owner")).equals(entity.getUniqueID().toString())) {
-			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("NBT CHECKED"), (false));
-			}
 			{
 				Entity _ent = entity;
 				if (_ent instanceof ServerPlayerEntity) {
@@ -83,9 +81,16 @@ public class NationOwnershipCheckProcedure {
 					}, _bpos);
 				}
 			}
+			if ((NarModVariables.MapVariables.get(world).dbug).equals("true")) {
+				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("NBT CHECKED"), (false));
+				}
+			}
 		}
-		if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-			((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("IF STATMENT PASS"), (false));
+		if ((NarModVariables.MapVariables.get(world).dbug).equals("true")) {
+			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("IF STATMENT PASS"), (false));
+			}
 		}
 	}
 }

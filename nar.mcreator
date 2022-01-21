@@ -99,7 +99,14 @@
       "registry_name": "nation_block_gui"
     }
   ],
-  "variable_elements": [],
+  "variable_elements": [
+    {
+      "name": "dbug",
+      "type": "string",
+      "scope": "map",
+      "value": "true"
+    }
+  ],
   "sound_elements": [],
   "language_map": {
     "en_us": {

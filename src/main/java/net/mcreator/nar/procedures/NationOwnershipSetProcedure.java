@@ -9,6 +9,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.block.BlockState;
 
+import net.mcreator.nar.NarModVariables;
 import net.mcreator.nar.NarMod;
 
 import java.util.Map;
@@ -55,8 +56,24 @@ public class NationOwnershipSetProcedure {
 			if (world instanceof World)
 				((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 		}
-		if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-			((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("NBT SET"), (false));
+		if ((NarModVariables.MapVariables.get(world).dbug).equals("true")) {
+			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("Owner NBT SET"), (false));
+			}
+		}
+		if (!world.isRemote()) {
+			BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+			TileEntity _tileEntity = world.getTileEntity(_bp);
+			BlockState _bs = world.getBlockState(_bp);
+			if (_tileEntity != null)
+				_tileEntity.getTileData().putString("nname", "Unnamed Nation");
+			if (world instanceof World)
+				((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+		}
+		if ((NarModVariables.MapVariables.get(world).dbug).equals("true")) {
+			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("Name NBT SET"), (false));
+			}
 		}
 	}
 }
