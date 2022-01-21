@@ -24,7 +24,8 @@
       "sortid": 3,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "nation_block"
+      "registry_name": "nation_block",
+      "path": "~/Nation Block"
     },
     {
       "name": "NationOwnershipSet",
@@ -56,7 +57,8 @@
             "type": "world"
           }
         ]
-      }
+      },
+      "path": "~/Nation Block"
     },
     {
       "name": "NationOwnershipCheck",
@@ -88,7 +90,8 @@
             "type": "world"
           }
         ]
-      }
+      },
+      "path": "~/Nation Block"
     },
     {
       "name": "NationBlockGui",
@@ -96,7 +99,8 @@
       "sortid": 6,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "nation_block_gui"
+      "registry_name": "nation_block_gui",
+      "path": "~/Nation Block"
     },
     {
       "name": "NationNameUpdate",
@@ -132,7 +136,8 @@
             "type": "world"
           }
         ]
-      }
+      },
+      "path": "~/Nation Block"
     }
   ],
   "variable_elements": [
@@ -156,6 +161,10 @@
     "children": [
       {
         "name": "NAR",
+        "children": []
+      },
+      {
+        "name": "Nation Block",
         "children": []
       }
     ]
