@@ -146,6 +146,12 @@
       "type": "string",
       "scope": "map",
       "value": "true"
+    },
+    {
+      "name": "NationIndex",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
     }
   ],
   "sound_elements": [],
