@@ -13,14 +13,14 @@
       {
         "type": "label",
         "data": {
-          "text": "<ENBT:text:nname>",
+          "text": "<BNBT:text:nname>",
           "color": {
             "value": -16777216,
             "falpha": 0.0
           },
-          "name": "<ENBT:text:nname>",
-          "x": 161,
-          "y": 41
+          "name": "<BNBT:text:nname>",
+          "x": 163,
+          "y": 40
         }
       }
     ],
