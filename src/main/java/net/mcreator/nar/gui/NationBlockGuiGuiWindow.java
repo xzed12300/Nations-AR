@@ -5,14 +5,19 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.World;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.client.gui.widget.button.Button;
+import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.Minecraft;
+
+import net.mcreator.nar.NarMod;
 
 import java.util.HashMap;
 
@@ -25,6 +30,7 @@ public class NationBlockGuiGuiWindow extends ContainerScreen<NationBlockGuiGui.G
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = NationBlockGuiGui.guistate;
+	TextFieldWidget cname;
 
 	public NationBlockGuiGuiWindow(NationBlockGuiGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
@@ -44,6 +50,7 @@ public class NationBlockGuiGuiWindow extends ContainerScreen<NationBlockGuiGui.G
 		this.renderBackground(ms);
 		super.render(ms, mouseX, mouseY, partialTicks);
 		this.renderHoveredTooltip(ms, mouseX, mouseY);
+		cname.render(ms, mouseX, mouseY, partialTicks);
 	}
 
 	@Override
@@ -64,12 +71,15 @@ public class NationBlockGuiGuiWindow extends ContainerScreen<NationBlockGuiGui.G
 			this.minecraft.player.closeScreen();
 			return true;
 		}
+		if (cname.isFocused())
+			return cname.keyPressed(key, b, c);
 		return super.keyPressed(key, b, c);
 	}
 
 	@Override
 	public void tick() {
 		super.tick();
+		cname.tick();
 	}
 
 	@Override
@@ -94,5 +104,37 @@ public class NationBlockGuiGuiWindow extends ContainerScreen<NationBlockGuiGui.G
 	public void init(Minecraft minecraft, int width, int height) {
 		super.init(minecraft, width, height);
 		minecraft.keyboardListener.enableRepeatEvents(true);
+		cname = new TextFieldWidget(this.font, this.guiLeft + 26, this.guiTop + 13, 120, 20, new StringTextComponent("Change Nation Name Here:")) {
+			{
+				setSuggestion("Change Nation Name Here:");
+			}
+
+			@Override
+			public void writeText(String text) {
+				super.writeText(text);
+				if (getText().isEmpty())
+					setSuggestion("Change Nation Name Here:");
+				else
+					setSuggestion(null);
+			}
+
+			@Override
+			public void setCursorPosition(int pos) {
+				super.setCursorPosition(pos);
+				if (getText().isEmpty())
+					setSuggestion("Change Nation Name Here:");
+				else
+					setSuggestion(null);
+			}
+		};
+		guistate.put("text:cname", cname);
+		cname.setMaxStringLength(32767);
+		this.children.add(this.cname);
+		this.addButton(new Button(this.guiLeft + 44, this.guiTop + 33, 82, 20, new StringTextComponent("Change Name"), e -> {
+			if (true) {
+				NarMod.PACKET_HANDLER.sendToServer(new NationBlockGuiGui.ButtonPressedMessage(0, x, y, z));
+				NationBlockGuiGui.handleButtonAction(entity, 0, x, y, z);
+			}
+		}));
 	}
 }

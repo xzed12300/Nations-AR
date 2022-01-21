@@ -22,6 +22,31 @@
           "x": 163,
           "y": 40
         }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "Change Nation Name Here:",
+          "width": 120,
+          "height": 20,
+          "name": "cname",
+          "x": 152,
+          "y": 50
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Change Name",
+          "onClick": {
+            "name": "NationNameUpdate"
+          },
+          "width": 82,
+          "height": 20,
+          "name": "Change Name",
+          "x": 170,
+          "y": 70
+        }
       }
     ],
     "gridSettings": {
