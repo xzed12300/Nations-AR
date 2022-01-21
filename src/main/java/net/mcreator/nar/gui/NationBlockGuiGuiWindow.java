@@ -92,6 +92,14 @@ public class NationBlockGuiGuiWindow extends ContainerScreen<NationBlockGuiGui.G
 				return "";
 			}
 		}.getValue(new BlockPos((int) x, (int) y, (int) z), "nname")) + "", 37, 3, -16777216);
+		this.font.drawString(ms, "" + (new Object() {
+			public String getValue(BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getString(tag);
+				return "";
+			}
+		}.getValue(new BlockPos((int) x, (int) y, (int) z), "nid")) + "", 2, 3, -16777216);
 	}
 
 	@Override
