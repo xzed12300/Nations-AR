@@ -87,7 +87,6 @@ public class NarModVariables {
 	public static class MapVariables extends WorldSavedData {
 		public static final String DATA_NAME = "nar_mapvars";
 		public String dbug = "true";
-		public double NationIndex = 0;
 
 		public MapVariables() {
 			super(DATA_NAME);
@@ -100,13 +99,11 @@ public class NarModVariables {
 		@Override
 		public void read(CompoundNBT nbt) {
 			dbug = nbt.getString("dbug");
-			NationIndex = nbt.getDouble("NationIndex");
 		}
 
 		@Override
 		public CompoundNBT write(CompoundNBT nbt) {
 			nbt.putString("dbug", dbug);
-			nbt.putDouble("NationIndex", NationIndex);
 			return nbt;
 		}
 
