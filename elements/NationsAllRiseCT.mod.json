@@ -1,0 +1,11 @@
+{
+  "_fv": 24,
+  "_type": "tab",
+  "definition": {
+    "name": "Nations! All Rise",
+    "icon": {
+      "value": "CUSTOM:NationsAllRiseToken"
+    },
+    "showSearch": false
+  }
+}

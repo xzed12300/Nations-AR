@@ -1,0 +1,138 @@
+{
+  "mod_elements": [
+    {
+      "name": "NationsAllRiseCT",
+      "type": "tab",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nations_all_rise_ct",
+      "path": "~/NAR"
+    },
+    {
+      "name": "NationsAllRiseToken",
+      "type": "item",
+      "sortid": 2,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nations_all_rise_token",
+      "path": "~/NAR"
+    },
+    {
+      "name": "NationBlock",
+      "type": "block",
+      "sortid": 3,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nation_block"
+    },
+    {
+      "name": "NationOwnershipSet",
+      "type": "procedure",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nation_ownership_set",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "NationOwnershipCheck",
+      "type": "procedure",
+      "sortid": 5,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nation_ownership_check",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "NationBlockGui",
+      "type": "gui",
+      "sortid": 6,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nation_block_gui"
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [],
+  "language_map": {
+    "en_us": {
+      "block.nar.nation_block": "Nation Block",
+      "item.nar.nations_all_rise_token": "Nations All Rise! Token",
+      "itemGroup.tabnations_all_rise_ct": "Nations! All Rise"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": [
+      {
+        "name": "NAR",
+        "children": []
+      }
+    ]
+  },
+  "workspaceSettings": {
+    "modid": "nar",
+    "modName": "Nations! All Rise",
+    "version": "1.0.0",
+    "author": "kingc, MCreator",
+    "websiteURL": "https://mcreator.net",
+    "license": "Academic Free License v3.0",
+    "disableForgeVersionCheck": true,
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.16.5",
+    "modElementsPackage": "net.mcreator.nar",
+    "lockBaseModFiles": false
+  },
+  "mcreatorVersion": 202100353117
+}

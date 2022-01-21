@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "nar:blocks/temp",
+    "up": "nar:blocks/temp",
+    "north": "nar:blocks/temp",
+    "east": "nar:blocks/temp",
+    "south": "nar:blocks/temp",
+    "west": "nar:blocks/temp",
+    "particle": "nar:blocks/temp"
+  }
+}
