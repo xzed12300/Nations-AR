@@ -1,14 +1,15 @@
 modLoader="javafml"
 loaderVersion="[36,)"
-license="Academic Free License v3.0"
+license="All Rights Reserved"
 
 [[mods]]
 modId="nar"
-version="1.0.0"
+version="0.0.1"
 displayName="Nations! All Rise"
 credits="Created using mod maker MCreator - https://mcreator.net/about"
 displayURL="https://mcreator.net"
-authors="kingc, MCreator"
+logoFile="logo.png"
+authors="xzed12300, MCreator"
 
 [[dependencies.nar]]
     modId="minecraft"
