@@ -88,6 +88,11 @@ public class NarModVariables {
 		public static final String DATA_NAME = "nar_mapvars";
 		public String dbug = "true";
 		public double NationIndex = 0;
+		public String n0 = "\"\"";
+		public String n1 = "\"\"";
+		public String n2 = "\"\"";
+		public String n3 = "\"\"";
+		public String n4 = "\"\"";
 
 		public MapVariables() {
 			super(DATA_NAME);
@@ -101,12 +106,22 @@ public class NarModVariables {
 		public void read(CompoundNBT nbt) {
 			dbug = nbt.getString("dbug");
 			NationIndex = nbt.getDouble("NationIndex");
+			n0 = nbt.getString("n0");
+			n1 = nbt.getString("n1");
+			n2 = nbt.getString("n2");
+			n3 = nbt.getString("n3");
+			n4 = nbt.getString("n4");
 		}
 
 		@Override
 		public CompoundNBT write(CompoundNBT nbt) {
 			nbt.putString("dbug", dbug);
 			nbt.putDouble("NationIndex", NationIndex);
+			nbt.putString("n0", n0);
+			nbt.putString("n1", n1);
+			nbt.putString("n2", n2);
+			nbt.putString("n3", n3);
+			nbt.putString("n4", n4);
 			return nbt;
 		}
 

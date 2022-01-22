@@ -1,5 +1,7 @@
 package net.mcreator.nar.procedures;
 
+import net.minecraftforge.fml.loading.FMLPaths;
+
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.text.StringTextComponent;
@@ -13,6 +15,9 @@ import net.mcreator.nar.NarModVariables;
 import net.mcreator.nar.NarMod;
 
 import java.util.Map;
+
+import java.io.IOException;
+import java.io.File;
 
 public class NationOwnershipSetProcedure {
 
@@ -48,6 +53,11 @@ public class NationOwnershipSetProcedure {
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
 		String nid = "";
+		String X = "";
+		String Y = "";
+		String Z = "";
+		File nations = new File("");
+		File nationsbw = new File("");
 		if (!world.isRemote()) {
 			BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 			TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -95,6 +105,43 @@ public class NationOwnershipSetProcedure {
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("ID NBT SET"), (false));
 			}
+		}
+		X = (new java.text.DecimalFormat("##.##").format(x));
+		Y = (new java.text.DecimalFormat("##.##").format(y));
+		Z = (new java.text.DecimalFormat("##.##").format(z));
+		nations = (File) new File((FMLPaths.GAMEDIR.get().toString() + "/NAR/nationdata"), File.separator + "nations.txt");
+		if (!nations.exists()) {
+			try {
+				nations.getParentFile().mkdirs();
+				nations.createNewFile();
+			} catch (IOException exception) {
+				exception.printStackTrace();
+			}
+			{
+				nationsbw.write("Nations Id List");
+				nationsbw.newLine();
+			}
+		}
+		{
+			nationsbw.write(nid);
+		}
+		{
+			nationsbw.write("_");
+		}
+		{
+			nationsbw.write(X);
+		}
+		{
+			nationsbw.write("_");
+		}
+		{
+			nationsbw.write(Y);
+		}
+		{
+			nationsbw.write("_");
+		}
+		{
+			nationsbw.write(Z);
 		}
 		NarModVariables.MapVariables.get(world).NationIndex = (NarModVariables.MapVariables.get(world).NationIndex + 1);
 		NarModVariables.MapVariables.get(world).syncData(world);
