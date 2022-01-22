@@ -31,7 +31,7 @@
       "name": "NationOwnershipSet",
       "type": "procedure",
       "sortid": 4,
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "nation_ownership_set",
       "metadata": {
@@ -97,7 +97,7 @@
       "name": "NationBlockGui",
       "type": "gui",
       "sortid": 6,
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "nation_block_gui",
       "path": "~/Nation Block"
@@ -138,90 +138,6 @@
         ]
       },
       "path": "~/Nation Block"
-    },
-    {
-      "name": "Flag",
-      "type": "block",
-      "sortid": 8,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "flag",
-      "path": "~/Flag"
-    },
-    {
-      "name": "FlagOwnerShipCheck",
-      "type": "procedure",
-      "sortid": 9,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "flag_owner_ship_check",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Flag"
-    },
-    {
-      "name": "FlagOwnerShipSet",
-      "type": "procedure",
-      "sortid": 10,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "flag_owner_ship_set",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Flag"
-    },
-    {
-      "name": "FlagGuio",
-      "type": "gui",
-      "sortid": 11,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "flag_guio",
-      "path": "~/Flag"
     }
   ],
   "variable_elements": [
@@ -273,8 +189,7 @@
     "en_us": {
       "block.nar.nation_block": "Nation Block",
       "item.nar.nations_all_rise_token": "Nations All Rise! Token",
-      "itemGroup.tabnations_all_rise_ct": "Nations! All Rise",
-      "block.nar.flag": "Flag"
+      "itemGroup.tabnations_all_rise_ct": "Nations! All Rise"
     }
   },
   "foldersRoot": {
@@ -286,10 +201,6 @@
       },
       {
         "name": "Nation Block",
-        "children": []
-      },
-      {
-        "name": "Flag",
         "children": []
       }
     ]

@@ -1,7 +1,5 @@
 package net.mcreator.nar.procedures;
 
-import net.minecraftforge.fml.loading.FMLPaths;
-
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.text.StringTextComponent;
@@ -16,7 +14,6 @@ import net.mcreator.nar.NarMod;
 
 import java.util.Map;
 
-import java.io.IOException;
 import java.io.File;
 
 public class NationOwnershipSetProcedure {
@@ -109,40 +106,6 @@ public class NationOwnershipSetProcedure {
 		X = (new java.text.DecimalFormat("##.##").format(x));
 		Y = (new java.text.DecimalFormat("##.##").format(y));
 		Z = (new java.text.DecimalFormat("##.##").format(z));
-		nations = (File) new File((FMLPaths.GAMEDIR.get().toString() + "/NAR/nationdata"), File.separator + "nations.txt");
-		if (!nations.exists()) {
-			try {
-				nations.getParentFile().mkdirs();
-				nations.createNewFile();
-			} catch (IOException exception) {
-				exception.printStackTrace();
-			}
-			{
-				nationsbw.write("Nations Id List");
-				nationsbw.newLine();
-			}
-		}
-		{
-			nationsbw.write(nid);
-		}
-		{
-			nationsbw.write("_");
-		}
-		{
-			nationsbw.write(X);
-		}
-		{
-			nationsbw.write("_");
-		}
-		{
-			nationsbw.write(Y);
-		}
-		{
-			nationsbw.write("_");
-		}
-		{
-			nationsbw.write(Z);
-		}
 		NarModVariables.MapVariables.get(world).NationIndex = (NarModVariables.MapVariables.get(world).NationIndex + 1);
 		NarModVariables.MapVariables.get(world).syncData(world);
 		if ((NarModVariables.MapVariables.get(world).dbug).equals("true")) {
